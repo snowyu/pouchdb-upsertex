@@ -1,8 +1,11 @@
 {
   "name": "pouchdb-upsertex",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "pouchdb upsert enhance",
-  "keywords": ["pouchdb","upsert"],
+  "keywords": [
+    "pouchdb",
+    "upsert"
+  ],
   "main": "dist/pouchdb-upsertex.umd.js",
   "module": "dist/pouchdb-upsertex.es5.js",
   "typings": "dist/types/pouchdb-upsertex.d.ts",
@@ -13,7 +16,7 @@
   "author": "Riceball LEE <snowyu.lee@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/snowyu/pouchdb-upsertex.git"
+    "url": "https://github.com/snowyu/pouchdb-upsertex"
   },
   "license": "MIT",
   "engines": {
@@ -33,7 +36,9 @@
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once",
+    "prepush": "npm run test:prod && npm run build",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
