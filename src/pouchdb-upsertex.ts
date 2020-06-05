@@ -1,4 +1,4 @@
-import PouchDB from 'pouchdb-core';
+/// <reference path="../types/typings.d.ts" />
 // Import here Polyfills if needed. Recommended core-js (npm i -D core-js)
   // import "core-js/fn/array.find"
   // ...
