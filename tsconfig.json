@@ -1,28 +1,12 @@
 {
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "target": "es5",
-    "module":"es2015",
-    "lib": ["es2015", "es2016", "es2017", "dom"],
-    "noImplicitThis": false,
-    "noImplicitAny": false,
-    "importHelpers": true,
-    "removeComments": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "sourceMap": true,
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declarationDir": "dist/types",
-    "outDir": "dist/lib",
-    "typeRoots": [
-      "node_modules/@types"
-    ]
-  },
-  "baseUrl": "src",
-  "include": [
-    "./src/**/*"
+  "extends": "./tsconfig.base.json",
+  "exclude": [
+    "**/*.back",
+    "**/*.disable",
+    "**/*.disable.ts",
+    "**/*.bak.ts",
+    "**/*.bakup.ts",
+    "**/*.test.ts",
+    "**/*.spec.ts"
   ]
 }
