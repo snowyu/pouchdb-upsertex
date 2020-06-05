@@ -10,6 +10,7 @@
   "module": "dist/pouchdb-upsertex.es5.js",
   "typings": "dist/types/pouchdb-upsertex.d.ts",
   "files": [
+    "types",
     "dist",
     "src"
   ],
@@ -60,6 +61,9 @@
       "@commitlint/config-conventional"
     ]
   },
+  "peerDependencies": {
+    "pouchdb-core": ">=7"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
@@ -78,6 +82,8 @@
     "jest-config": "^26.0.1",
     "lint-staged": "^10.2.9",
     "lodash.camelcase": "^4.3.0",
+    "pouchdb-adapter-memory": "^7.2.1",
+    "pouchdb-core": "^7.2.1",
     "prettier": "^2.0.5",
     "prompt": "^1.0.0",
     "replace-in-file": "^6.0.0",
