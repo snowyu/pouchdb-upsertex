@@ -270,4 +270,48 @@ describe('basic test suite', function () {
     })).rejects.toThrow('An upsertEx diff error');
   });
 
+  it('expect postEx a new doc', async function () {
+    const res = await db.postEx({_id: 'myid', some: 'doc'});
+    expect(res.ok).toBeTruthy();
+    expect(res.rev).toMatch(/1-/);
+    expect(res.id).toStrictEqual('myid');
+    let doc = await db.get('myid');
+    expect(doc).toHaveProperty('_rev');
+    delete doc._rev;
+    expect(doc).toEqual({
+      _id: 'myid',
+      some: 'doc'
+    });
+  });
+
+  it('expect postEx throw if no doc _id', async function () {
+    return expect(db.postEx({some: 'doc'})).rejects.toThrow();
+  });
+
+  it('expect postEx throw if doc exists', async function () {
+    const res = await db.postEx({_id: 'myid', some: 'doc'});
+    expect(res.ok).toBeTruthy();
+    expect(res.rev).toMatch(/1-/);
+    expect(res.id).toStrictEqual('myid');
+    return expect(db.postEx({_id: 'myid', some: 'doc2'})).rejects.toThrow();
+  });
+
+  it('expect upsert a new doc', async function () {
+    const res = await db.upsert({_id: 'myid', some: 'doc'});
+    expect(res.ok).toBeTruthy();
+    expect(res.rev).toMatch(/1-/);
+    expect(res.id).toStrictEqual('myid');
+    let doc = await db.get('myid');
+    expect(doc).toHaveProperty('_rev');
+    delete doc._rev;
+    expect(doc).toEqual({
+      _id: 'myid',
+      some: 'doc'
+    });
+  });
+
+  it('expect upsert throw if no doc _id', async function () {
+    return expect(db.upsert({some: 'doc'})).rejects.toThrow();
+  });
+
 });

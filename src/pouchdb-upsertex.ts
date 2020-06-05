@@ -32,6 +32,7 @@ async function upsertInner(db: PouchDB.Database, docId: string, diffFun: DiffFun
   try {
     doc = await db.get(docId);
   } catch (err) {
+    /* istanbul ignore next */
     if (err.status !== 404) {
       throw err;
     }
@@ -70,6 +71,7 @@ async function tryAndPut(db: PouchDB.Database, doc, diffFun, options= {}, count:
     // if (Array.isArray(res)) res = {ok: true};
   } catch (err) {
     // 409: doc already exists
+    /* istanbul ignore next */
     if (err.status !== 409) {
       throw err;
     }
