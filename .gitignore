@@ -10,3 +10,5 @@ compiled
 .awcache
 .rpt2_cache
 docs
+types/pouchdb-upsertex.d.ts
+types/utils.d.ts
