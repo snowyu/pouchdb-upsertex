@@ -41,6 +41,13 @@ API
 * [`async db.putIfNotExists([docId, ] doc [, options])`](#dbputifnotexistsdocid--doc--options)
 * [`async db.postEx(doc [, options])`](#dbupsertdoc--options)
 
+### db.postEx(doc [, options])
+
+async perform an insert operation. It will throw error if doc already exists.
+
+* options: optional options which pass to `db.put` .
+  * retry: the keep retry number, defaults to 6.
+
 ### db.upsert(doc [, options])
 
 async perform an upsert (update or insert) operation.
@@ -57,13 +64,6 @@ async perform an upsert (update or insert) operation.
 * `diffFunc` - function that takes the existing doc as input and returns an updated doc.
   * If this `diffFunc` returns falsey, then the update won't be performed (as an optimization).
   * If the document does not already exist, then `{}` will be the input to `diffFunc`.
-* options: optional options which pass to `db.put` .
-  * retry: the keep retry number, defaults to 6.
-
-### db.postEx(doc [, options])
-
-async perform an insert operation. It will throw error if doc already exists.
-
 * options: optional options which pass to `db.put` .
   * retry: the keep retry number, defaults to 6.
 
