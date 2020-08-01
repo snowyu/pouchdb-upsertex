@@ -8,7 +8,7 @@
   ],
   "main": "dist/pouchdb-upsertex.umd.js",
   "module": "dist/pouchdb-upsertex.es5.js",
-  "typings": "dist/types/pouchdb-upsertex.d.ts",
+  "typings": "types/pouchdb-upsertex.d.ts",
   "files": [
     "types",
     "dist",
