@@ -128,7 +128,7 @@ export async function postEx(this: PouchDB.Database, aDoc, aOptions?) {
 }
 
 // export default { postEx, putIfNotExists, upsert };
-export default function(PouchDB: PouchDB.Static) {
+export function upsertExPlugin(PouchDB: PouchDB.Static) {
   // // fix[#7914](https://github.com/pouchdb/pouchdb/issues/7914)
   // // put with new_edits: false return an empty array(call the bulkDocs)
   // const oldPut = PouchDB.prototype.put;
@@ -167,3 +167,4 @@ export default function(PouchDB: PouchDB.Static) {
   PouchDB.prototype.upsert = upsert;
 }
 
+export default upsertExPlugin;
